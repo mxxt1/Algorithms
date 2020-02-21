@@ -6,19 +6,16 @@ def recipe_batches(recipe, ingredients):
   max = 0
   valid = 0
   count = {}
-  # print(recipe.keys())
-  # print(ingredients.keys())
-  for i in recipe:
-        print(count)
-        if recipe.keys() == ingredients.keys():
-          if recipe[i] > ingredients[i]:
-              max = 0
-          elif recipe[i] <= ingredients[i]:
-              valid += 1
-              max_batches = ingredients[i]//recipe[i]
-              count[i] = max_batches
-        else:
-              max=0
+  if recipe.keys() == ingredients.keys():
+    for i in recipe:
+        if recipe[i] > ingredients[i]:
+            max = 0
+        elif recipe[i] <= ingredients[i]:
+            valid += 1
+            max_batches = ingredients[i]//recipe[i]
+            count[i] = max_batches
+  else:
+    max=0
 
   if valid >= len(recipe)-1:
         max = min(count.values())
